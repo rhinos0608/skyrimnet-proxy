@@ -16,7 +16,7 @@ model_slots:
 
   creative:
     provider: mistral
-    model: mistral-large-2411
+    model: mistral-large-latest
 
   factual:
     provider: openai
@@ -24,7 +24,7 @@ model_slots:
   
   story:
     provider: mistral
-    model: mistral-medium
+    model: labs-mistral-small-creative
 
   # ========================================
   # OpenAI Routes
@@ -98,15 +98,15 @@ model_slots:
 
   mistral-large:
     provider: mistral
-    model: mistral-large-2411
+    model: mistral-large-latest
 
   mistral-medium:
     provider: mistral
-    model: mistral-medium
+    model: mistral-medium-latest
 
   mistral-small:
     provider: mistral
-    model: mistral-small-2503
+    model: mistral-small-latest
 
   # ========================================
   # z.ai Routes

@@ -21,7 +21,7 @@ providers:
       - n
     streaming_adapter: "none"
     default_timeout: "60s"
-    max_retries: 2
+    max_retries: 0
 
   # ========================================
   # Google AI Studio (API Key authentication)
@@ -45,7 +45,7 @@ providers:
       - stop
     streaming_adapter: "none"
     default_timeout: "60s"
-    max_retries: 2
+    max_retries: 0
 
   # ========================================
   # Mistral AI (API Key authentication)
@@ -54,7 +54,7 @@ providers:
   # Models: mistral-large-3-25-12, mistral-medium-3-1-25-08, mistral-small-3-2-25-06, etc.
   # ========================================
   mistral:
-    base_url: "https://api.mistral.ai"
+    base_url: "https://api.mistral.ai/v1/chat/completions"
     api_key_env: "MISTRAL_API_KEY"
     auth_header: "Authorization: Bearer ${API_KEY}"
     allowed_fields:
@@ -64,13 +64,9 @@ providers:
       - temperature
       - max_tokens
       - top_p
-      - frequency_penalty
-      - presence_penalty
-      - stop
-      - n
     streaming_adapter: "none"
     default_timeout: "60s"
-    max_retries: 2
+    max_retries: 0
 
   # ========================================
   # z.ai (API Key authentication)
@@ -91,7 +87,7 @@ providers:
       - stop
     streaming_adapter: "none"
     default_timeout: "60s"
-    max_retries: 2
+    max_retries: 0
 
   # ========================================
   # OpenRouter (API Key authentication)
@@ -116,7 +112,7 @@ providers:
       - cache
     streaming_adapter: "none"
     default_timeout: "60s"
-    max_retries: 2
+    max_retries: 0
 
   # ========================================
   # Groq (API Key authentication)
@@ -137,7 +133,7 @@ providers:
       - stop
     streaming_adapter: "none"
     default_timeout: "60s"
-    max_retries: 2
+    max_retries: 0
 
 # ========================================
 # Proxy Settings
