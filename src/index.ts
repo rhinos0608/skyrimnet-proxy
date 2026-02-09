@@ -8,6 +8,10 @@ import { Router } from "./proxy/router.js";
 import { createLogger, type Logger } from "./logging/logger.js";
 import { startServer } from "./proxy/server.js";
 import { closeAllClients } from "./proxy/client.js";
+import { startDashboardServer } from "./dashboard/server.js";
+import { setProvidersConfig } from "./dashboard/routes.js";
+import { registerProviderAccount } from "./oauth/account-registry.js";
+import type { ProviderConfig } from "./types/config.js";
 
 /**
  * Main function
@@ -43,6 +47,33 @@ async function main(): Promise<void> {
     configuredLogger.info("Router initialized", {
       model_slots: router.getModelSlots(),
     });
+
+    // Register provider accounts for dashboard display
+    for (const [providerId, config] of Object.entries(providers.providers)) {
+      const providerConfig = config as ProviderConfig;
+      registerProviderAccount(
+        providerId,
+        providerConfig.api_key_env,
+        providerConfig.base_url,
+        configuredLogger
+      );
+    }
+
+    // Set providers config for dashboard
+    setProvidersConfig(providers);
+
+    // Start dashboard server (optional - don't fail if port is taken)
+    const dashboardPort = process.env.DASHBOARD_PORT
+      ? parseInt(process.env.DASHBOARD_PORT, 10)
+      : 3001;
+    try {
+      await startDashboardServer(configuredLogger, dashboardPort);
+    } catch (error) {
+      configuredLogger.warn("Dashboard server failed to start", {
+        error: error instanceof Error ? error.message : String(error),
+        port: dashboardPort,
+      });
+    }
 
     // Start API proxy server
     const { listen_address, listen_port } = providers.proxy;

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyrimNet Proxy Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SkyrimNet Proxy</h1>
+            <p class="subtitle">Provider Configuration Dashboard</p>
+        </header>
+
+        <main>
+            <!-- Status Section -->
+            <section class="status-section">
+                <h2>Proxy Status</h2>
+                <div id="status-card" class="status-card">
+                    <div class="status-indicator loading">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Loading...</span>
+                    </div>
+                    <div class="status-details"></div>
+                </div>
+            </section>
+
+            <!-- Providers Section -->
+            <section class="providers-section">
+                <h2>Configured Providers</h2>
+                <div id="providers-list" class="providers-list">
+                    <div class="loading">Loading providers...</div>
+                </div>
+            </section>
+
+            <!-- Environment Variables Section -->
+            <section class="env-section">
+                <h2>Environment Variables</h2>
+                <div id="env-list" class="env-list">
+                    <div class="loading">Loading environment configuration...</div>
+                </div>
+            </section>
+
+            <!-- Configuration Help Section -->
+            <section class="help-section">
+                <h2>Configuration Guide</h2>
+                <div class="help-content">
+                    <h3>Setting up API Keys</h3>
+                    <p>
+                        This proxy uses environment variables for API key configuration.
+                        Create a <code>.env</code> file in the project root with your provider API keys:
+                    </p>
+                    <pre><code># OpenAI
+OPENAI_API_KEY=sk-proj-your-key-here
+
+# Google AI Studio
+GOOGLE_API_KEY=your-google-key-here
+
+# Mistral AI
+MISTRAL_API_KEY=your-mistral-key-here
+
+# z.ai
+ZAI_API_KEY=your-zai-key-here
+
+# OpenRouter
+OPENROUTER_API_KEY=sk-or-your-key-here
+
+# Groq
+GROQ_API_KEY=gsk-your-key-here</code></pre>
+
+                    <h3>Provider Base URLs</h3>
+                    <p>
+                        Each provider is configured with its base URL in <code>config/providers.yaml</code>.
+                        The proxy routes requests to these endpoints based on the model slot configuration
+                        in <code>config/routes.yaml</code>.
+                    </p>
+
+                    <h3>Model Slots</h3>
+                    <p>
+                        Model slots map friendly names to specific provider/model combinations.
+                        Configure these in <code>config/routes.yaml</code>:
+                    </p>
+                    <pre><code>model_slots:
+  default:
+    provider: zai
+    model: GLM-4.7
+  fast:
+    provider: zai
+    model: GLM-4.5-flash
+  creative:
+    provider: mistral
+    model: mistral-large-2411</code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>SkyrimNet Proxy v1.0.0 - <a href="http://127.0.0.1:35791" target="_blank">Proxy Endpoint</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

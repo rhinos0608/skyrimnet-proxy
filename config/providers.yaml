@@ -89,7 +89,6 @@ providers:
       - max_tokens
       - top_p
       - stop
-      - cache
     streaming_adapter: "none"
     default_timeout: "60s"
     max_retries: 2

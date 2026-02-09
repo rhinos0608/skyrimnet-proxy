@@ -12,7 +12,7 @@ model_slots:
 
   fast:
     provider: zai
-    model: GLM-4.5-flash
+    model: GLM-4.5-air
 
   creative:
     provider: mistral
@@ -21,6 +21,10 @@ model_slots:
   factual:
     provider: openai
     model: gpt-4.1
+  
+  story:
+    provider: mistral
+    model: mistral-medium
 
   # ========================================
   # OpenAI Routes
@@ -110,7 +114,7 @@ model_slots:
 
   glm-4.7:
     provider: zai
-    model: GLMlm-4.7
+    model: GLM-4.7
 
   glm-4.6:
     provider: zai
@@ -118,7 +122,7 @@ model_slots:
 
   glm-4.5:
     provider: zai
-    model: GLM-4.5-flash
+    model: GLM-4.5-air
 
   # ========================================
   # OpenRouter Routes
