@@ -55,20 +55,22 @@ model_slots:
     model: o4-mini
 
   # ========================================
-  # Anthropic Routes
+  # Anthropic Routes (via OpenRouter)
+  # Note: Anthropic native API uses /v1/messages (not OpenAI-compatible)
+  # These routes use OpenRouter as the translation layer
   # ========================================
 
   claude-opus:
-    provider: anthropic
-    model: claude-opus-4-20250514
+    provider: openrouter
+    model: anthropic/claude-opus-4-20250514
 
   claude-sonnet:
-    provider: anthropic
-    model: claude-sonnet-4-20250514
+    provider: openrouter
+    model: anthropic/claude-sonnet-4-20250514
 
   claude-3-7-sonnet:
-    provider: anthropic
-    model: claude-3-7-sonnet-latest
+    provider: openrouter
+    model: anthropic/claude-3-7-sonnet-latest
 
   # ========================================
   # Google AI Studio Routes
@@ -122,7 +124,7 @@ model_slots:
   # OpenRouter Routes
   # ========================================
 
-  openrouter-default:
+  openrouter-claude:
     provider: openrouter
     model: anthropic/claude-sonnet-4
 
