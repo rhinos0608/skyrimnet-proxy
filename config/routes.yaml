@@ -7,16 +7,16 @@ model_slots:
   # ========================================
 
   default:
-    provider: openai
-    model: gpt-4o
+    provider: zai
+    model: GLM-4.7
 
   fast:
-    provider: openai
-    model: gpt-4o-mini
+    provider: zai
+    model: GLM-4.5-flash
 
   creative:
-    provider: openai
-    model: gpt-4o
+    provider: mistral
+    model: mistral-large-2411
 
   factual:
     provider: openai
@@ -94,15 +94,15 @@ model_slots:
 
   mistral-large:
     provider: mistral
-    model: mistral-large-3-25-12
+    model: mistral-large-2411
 
   mistral-medium:
     provider: mistral
-    model: mistral-medium-3-1-25-08
+    model: mistral-medium
 
   mistral-small:
     provider: mistral
-    model: mistral-small-3-2-25-06
+    model: mistral-small-2503
 
   # ========================================
   # z.ai Routes
@@ -110,15 +110,15 @@ model_slots:
 
   glm-4.7:
     provider: zai
-    model: glm-4.7
+    model: GLMlm-4.7
 
   glm-4.6:
     provider: zai
-    model: glm-4.6
+    model: GLM-4.6
 
   glm-4.5:
     provider: zai
-    model: glm-4.5
+    model: GLM-4.5-flash
 
   # ========================================
   # OpenRouter Routes
