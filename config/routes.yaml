@@ -1,0 +1,133 @@
+# Model slot mappings for SkyrimNet Proxy
+# Routes map model aliases to specific providers and models
+
+model_slots:
+  # ========================================
+  # Default and Utility Routes
+  # ========================================
+
+  default:
+    provider: openai
+    model: gpt-4o
+
+  fast:
+    provider: openai
+    model: gpt-4o-mini
+
+  creative:
+    provider: openai
+    model: gpt-4o
+
+  factual:
+    provider: openai
+    model: gpt-4.1
+
+  # ========================================
+  # OpenAI Routes
+  # ========================================
+
+  gpt-4o:
+    provider: openai
+    model: gpt-4o
+
+  gpt-4o-mini:
+    provider: openai
+    model: gpt-4o-mini
+
+  gpt-4.1:
+    provider: openai
+    model: gpt-4.1
+
+  gpt-4.1-mini:
+    provider: openai
+    model: gpt-4.1-mini
+
+  o3:
+    provider: openai
+    model: o3
+
+  o3-mini:
+    provider: openai
+    model: o3-mini
+
+  o4-mini:
+    provider: openai
+    model: o4-mini
+
+  # ========================================
+  # Anthropic Routes
+  # ========================================
+
+  claude-opus:
+    provider: anthropic
+    model: claude-opus-4-20250514
+
+  claude-sonnet:
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+
+  claude-3-7-sonnet:
+    provider: anthropic
+    model: claude-3-7-sonnet-latest
+
+  # ========================================
+  # Google AI Studio Routes
+  # ========================================
+
+  gemini-2.5-flash:
+    provider: google
+    model: gemini-2.5-flash
+
+  gemini-3-pro:
+    provider: google
+    model: gemini-3-pro-preview
+
+  gemini-3-flash:
+    provider: google
+    model: gemini-3-flash-preview
+
+  # ========================================
+  # Mistral Routes
+  # ========================================
+
+  mistral-large:
+    provider: mistral
+    model: mistral-large-3-25-12
+
+  mistral-medium:
+    provider: mistral
+    model: mistral-medium-3-1-25-08
+
+  mistral-small:
+    provider: mistral
+    model: mistral-small-3-2-25-06
+
+  # ========================================
+  # z.ai Routes
+  # ========================================
+
+  glm-4.7:
+    provider: zai
+    model: glm-4.7
+
+  glm-4.6:
+    provider: zai
+    model: glm-4.6
+
+  glm-4.5:
+    provider: zai
+    model: glm-4.5
+
+  # ========================================
+  # OpenRouter Routes
+  # ========================================
+
+  openrouter-default:
+    provider: openrouter
+    model: anthropic/claude-sonnet-4
+
+# ========================================
+# Proxy Settings
+# ========================================
+proxy:
+  fallback_to_default: false
